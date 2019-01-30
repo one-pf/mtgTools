@@ -15,11 +15,7 @@
 .grid {
   display: grid;
   font-size: 0.75rem;
-<<<<<<< HEAD
   grid-template-columns: 7em auto 5em 10em;
-=======
-  grid-template-columns: auto 5em 10em;
->>>>>>> 99f4dc6aacea819e9316478aab12711212733d8c
   & .item {
 
     border-bottom: 1px solid lightgray;
