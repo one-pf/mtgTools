@@ -1,0 +1,30 @@
+<div>
+  <div class="grid">
+    <ng-container *ngFor="let field of fields">
+      <div class="item header">{{ field }}</div>
+    </ng-container>
+    <ng-container *ngFor="let set of getSets('core')">
+      <div class="item" *ngFor="let field of fields">{{ set[field] }}</div>
+    </ng-container>
+  </div>
+</div>
+
+<!--
+block: "Guilds of Ravnica"
+block_code: "grn"
+card_count: 273
+code: "grn"
+digital: false
+foil_only: false
+icon_svg_uri: "https://img.scryfall.com/sets/grn.svg?1548651600"
+id: "597c6d4a-8212-4903-a6af-12c4ae9e13f0"
+mtgo_code: "grn"
+name: "Guilds of Ravnica"
+object: "set"
+released_at: "2018-10-05"
+scryfall_uri: "https://scryfall.com/sets/grn"
+search_uri: "https://api.scryfall.com/cards/search?order=set&q=e%3Agrn&unique=prints"
+set_type: "expansion"
+tcgplayer_id: 2290
+uri: "https://api.scryfall.com/sets/597c6d4a-8212-4903-a6af-12c4ae9e13f0"
+-->

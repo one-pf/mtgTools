@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(17, min-content);
+  & .item {
+    padding: 4px;
+    border-bottom: 1px solid lightgray;
+
+    &.header {
+      position: sticky;
+      top: 0;
+      background: darkslategrey;
+      border-bottom: 4px soid green;
+    }
+  }
+}
