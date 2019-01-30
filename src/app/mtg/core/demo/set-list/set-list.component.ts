@@ -13,8 +13,12 @@ export class SetListComponent implements OnInit {
   selectedSet: MtgSet;
   selectedCard: MtgCard;
   rarityFilter = 'all';
+<<<<<<< HEAD
   setTypeFilter = 'all';
   isLoadingCardSet = false;
+=======
+  isLoadingSelectedSet = false;
+>>>>>>> 99f4dc6aacea819e9316478aab12711212733d8c
   cardSet: Array<MtgCard> = [];
   // fields = Object.keys(new MtgSet());
   fields = [
@@ -25,11 +29,15 @@ export class SetListComponent implements OnInit {
   ];
 
   coreFields = [
+<<<<<<< HEAD
     {key: 'set_type', text: 'Set Type'},
+=======
+>>>>>>> 99f4dc6aacea819e9316478aab12711212733d8c
     {key: 'name', text: 'Name'},
     {key: 'card_count', text: 'Cards'},
     {key: 'released_at', text: 'Release Date'}
   ];
+<<<<<<< HEAD
 
   setTypes = [
     'core', 'expansion', 'promo', 'box', 'token',
@@ -37,6 +45,8 @@ export class SetListComponent implements OnInit {
     'commander', 'memorabilia', 'starter', 'duel_deck',
     'spellbook', 'draft_innovation', 'from_the_vault', 'funny'
   ];
+=======
+>>>>>>> 99f4dc6aacea819e9316478aab12711212733d8c
 
   constructor(private api: ScryfallService) { }
 
@@ -49,6 +59,7 @@ export class SetListComponent implements OnInit {
 
   getSets() {
     const filtered = this.sets
+<<<<<<< HEAD
       .filter(set => {
         if (this.setTypeFilter === 'all') {
           return true;
@@ -56,6 +67,9 @@ export class SetListComponent implements OnInit {
           return set['set_type'] === this.setTypeFilter;
         }
       })
+=======
+      .filter(set => set['set_type'] === setType)
+>>>>>>> 99f4dc6aacea819e9316478aab12711212733d8c
       .sort((a, b) => {
         if (a.released_at > b.released_at) { return 1; }
         if (a.released_at < b.released_at) { return -1; }
@@ -77,7 +91,11 @@ export class SetListComponent implements OnInit {
     this.selectedSet = set;
     console.log(this.selectedSet);
     this.cardSet = [];
+<<<<<<< HEAD
     this.isLoadingCardSet = true;
+=======
+    this.isLoadingSelectedSet = true;
+>>>>>>> 99f4dc6aacea819e9316478aab12711212733d8c
     this.loadSelectedSet(set.search_uri);
   }
 
@@ -103,7 +121,11 @@ export class SetListComponent implements OnInit {
           if (+a['usd'] < +b['usd']) { return -1; }
           return 0;
         }).reverse();
+<<<<<<< HEAD
         this.isLoadingCardSet = false;
+=======
+        this.isLoadingSelectedSet = false;
+>>>>>>> 99f4dc6aacea819e9316478aab12711212733d8c
       }
     });
   }

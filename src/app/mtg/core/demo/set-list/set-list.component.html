@@ -5,6 +5,7 @@
         <ng-container *ngFor="let field of coreFields">
           <div class="item header">{{ field.text }}</div>
         </ng-container>
+<<<<<<< HEAD
 
         <div class="item">
           <select [(ngModel)]="setTypeFilter">
@@ -17,6 +18,9 @@
         <div class="item"></div>
 
         <ng-container *ngFor="let set of getSets()">
+=======
+        <ng-container *ngFor="let set of getSets('expansion')">
+>>>>>>> 99f4dc6aacea819e9316478aab12711212733d8c
           <div class="item" *ngFor="let field of coreFields" (click)="selectSet(set)">
             <p>{{ set[field.key] }}</p>
           </div>
