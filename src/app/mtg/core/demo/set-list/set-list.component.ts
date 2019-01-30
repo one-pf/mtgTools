@@ -17,6 +17,8 @@ export class SetListComponent implements OnInit {
     'set_type', 'tcgplayer_id', 'uri'
   ];
 
+  coreFields = ['name', 'card_count', 'released_at'];
+
   constructor(private api: ScryfallService) { }
 
   ngOnInit() {

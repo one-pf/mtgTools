@@ -2,15 +2,17 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(17, min-content);
+  grid-template-columns: 15em 10em 10em;
   & .item {
-    padding: 4px;
+    padding: 10px;
     border-bottom: 1px solid lightgray;
 
     &.header {
       position: sticky;
       top: 0;
       background: darkslategrey;
+      color: white;
+      padding: 10px;
       border-bottom: 4px soid green;
     }
   }

@@ -1,10 +1,10 @@
 <div>
   <div class="grid">
-    <ng-container *ngFor="let field of fields">
+    <ng-container *ngFor="let field of coreFields">
       <div class="item header">{{ field }}</div>
     </ng-container>
     <ng-container *ngFor="let set of getSets('core')">
-      <div class="item" *ngFor="let field of fields">{{ set[field] }}</div>
+      <div class="item" *ngFor="let field of coreFields">{{ set[field] }}</div>
     </ng-container>
   </div>
 </div>
