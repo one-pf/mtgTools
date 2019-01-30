@@ -11,4 +11,8 @@ export class ScryfallService {
   public getSets() {
     return this.http.get(`https://api.scryfall.com/sets`, {headers: new HttpHeaders(), observe: 'response'});
   }
+
+  public getSearchResult(uri) {
+    return this.http.get(uri);
+  }
 }
