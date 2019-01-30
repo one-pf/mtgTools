@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # MtgTools
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
@@ -28,4 +28,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 =======
 # mtgTools
->>>>>>> c4a00a460e4d643a791639d106aac0e8e54b8996
