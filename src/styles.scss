@@ -1,19 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
 
+@-moz-document {
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 0.5em;
+  background: black;
+}
+::-webkit-scrollbar-thumb {
+  background: darkslategray;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: 15em 10em 10em;
+  font-size: 0.75rem;
+  grid-template-columns: auto 5em 10em;
   & .item {
-    padding: 10px;
-    border-bottom: 1px solid lightgray;
 
+    border-bottom: 1px solid lightgray;
+    white-space: nowrap;
     &.header {
       position: sticky;
       top: 0;
       background: darkslategrey;
       color: white;
-      padding: 10px;
-      border-bottom: 4px soid green;
+
+      border-bottom: 4px solid rgb(34, 216, 34);
+    }
+  }
+}
+
+.card-grid {
+  display: grid;
+  font-size: 0.75rem;
+  & .cell {
+    border-bottom: 1px solid lightgray;
+    &.header {
+      position: sticky;
+      top: 0;
+      background: darkslategray;
+      color: white;
+
+      border-bottom: 4px solid rgb(34, 216, 34);
     }
   }
 }

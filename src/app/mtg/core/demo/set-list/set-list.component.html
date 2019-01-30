@@ -1,30 +1,78 @@
-<div>
-  <div class="grid">
-    <ng-container *ngFor="let field of coreFields">
-      <div class="item header">{{ field }}</div>
-    </ng-container>
-    <ng-container *ngFor="let set of getSets('core')">
-      <div class="item" *ngFor="let field of coreFields">{{ set[field] }}</div>
-    </ng-container>
-  </div>
-</div>
 
-<!--
-block: "Guilds of Ravnica"
-block_code: "grn"
-card_count: 273
-code: "grn"
-digital: false
-foil_only: false
-icon_svg_uri: "https://img.scryfall.com/sets/grn.svg?1548651600"
-id: "597c6d4a-8212-4903-a6af-12c4ae9e13f0"
-mtgo_code: "grn"
-name: "Guilds of Ravnica"
-object: "set"
-released_at: "2018-10-05"
-scryfall_uri: "https://scryfall.com/sets/grn"
-search_uri: "https://api.scryfall.com/cards/search?order=set&q=e%3Agrn&unique=prints"
-set_type: "expansion"
-tcgplayer_id: 2290
-uri: "https://api.scryfall.com/sets/597c6d4a-8212-4903-a6af-12c4ae9e13f0"
--->
+  <div class="columns">
+    <div class="column is-narrow">
+      <div class="grid" [ngStyle]="{'max-height': '90vh', 'overflow': 'auto'}">
+        <ng-container *ngFor="let field of coreFields">
+          <div class="item header">{{ field.text }}</div>
+        </ng-container>
+        <ng-container *ngFor="let set of getSets('expansion')">
+          <div class="item" *ngFor="let field of coreFields" (click)="selectSet(set)">
+            <p>{{ set[field.key] }}</p>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="column is-narrow">
+      <div *ngIf="isLoadingCardSet">
+        <p>Loading {{ selectedSet.name }}...</p>
+      </div>
+      <div *ngIf="selectedSet" class="card-grid" style="grid-template-columns: 2em 6em auto 5em auto 5em" [ngStyle]="{'max-height': '90vh', 'overflow': 'auto'}">
+        <div class="cell header"></div>
+        <div class="cell header">Rarity</div>
+        <div class="cell header">Name</div>
+        <div class="cell header">Reprint</div>
+        <div class="cell header">Type</div>
+        <div class="cell header">USD</div>
+
+        <div class="item"></div>
+        <div class="item">
+          <select [(ngModel)]="rarityFilter">
+            <option value="all">All</option>
+            <option value="common">Common</option>
+            <option value="uncommon">Uncommon</option>
+            <option value="rare">Rare</option>
+            <option value="mythic">Mythic</option>
+          </select>
+        </div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <ng-container *ngFor="let card of getFilteredCardSet()">
+          <div class="item">{{ card.cmc }}</div>
+          <div class="item">{{ card.rarity }}</div>
+          <div class="item" (click)="selectCard(card)">{{ card.name }}</div>
+          <div class="item"><span *ngIf="card.reprint">Yes</span></div>
+          <div class="item">{{ card.type_line }}</div>
+          <div class="item">${{ card.usd }}</div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="column">
+      <div *ngIf="selectedCard">
+        <p>{{ selectedCard.name }}</p>
+        <img [src]="selectedCard.image_uris['large']" />
+      </div>
+
+    </div>
+  </div>
+
+  <!--
+  block: "Guilds of Ravnica"
+  block_code: "grn"
+  card_count: 273
+  code: "grn"
+  digital: false
+  foil_only: false
+  icon_svg_uri: "https://img.scryfall.com/sets/grn.svg?1548651600"
+  id: "597c6d4a-8212-4903-a6af-12c4ae9e13f0"
+  mtgo_code: "grn"
+  name: "Guilds of Ravnica"
+  object: "set"
+  released_at: "2018-10-05"
+  scryfall_uri: "https://scryfall.com/sets/grn"
+  search_uri: "https://api.scryfall.com/cards/search?order=set&q=e%3Agrn&unique=prints"
+  set_type: "expansion"
+  tcgplayer_id: 2290
+  uri: "https://api.scryfall.com/sets/597c6d4a-8212-4903-a6af-12c4ae9e13f0"
+  -->
