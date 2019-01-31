@@ -16,6 +16,7 @@ export class SetListComponent implements OnInit {
   setTypeFilter = 'all';
   isLoadingCardSet = false;
   cardSet: Array<MtgCard> = [];
+  userCardList: Array<MtgCard> = [];
   // fields = Object.keys(new MtgSet());
   fields = [
     'block', 'block_code', 'card_count', 'code', 'digital',
@@ -83,6 +84,10 @@ export class SetListComponent implements OnInit {
 
   selectCard(card) {
     this.selectedCard = card;
+  }
+
+  addCard(card) {
+    this.userCardList.push(card);
   }
 
   private loadSelectedSet(uri) {

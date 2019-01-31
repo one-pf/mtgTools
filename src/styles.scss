@@ -30,19 +30,3 @@
     }
   }
 }
-
-.card-grid {
-  display: grid;
-  font-size: 0.75rem;
-  & .cell {
-    border-bottom: 1px solid lightgray;
-    &.header {
-      position: sticky;
-      top: 0;
-      background: darkslategray;
-      color: white;
-
-      border-bottom: 4px solid rgb(34, 216, 34);
-    }
-  }
-}

@@ -1,7 +1,7 @@
-
+<section class="section">
   <div class="columns">
     <div class="column is-narrow">
-      <div class="grid" [ngStyle]="{'max-height': '90vh', 'overflow': 'auto'}">
+      <div class="grid" [ngStyle]="{'max-height': '40vh', 'overflow': 'auto'}">
         <ng-container *ngFor="let field of coreFields">
           <div class="item header">{{ field.text }}</div>
         </ng-container>
@@ -27,13 +27,14 @@
       <div *ngIf="isLoadingCardSet">
         <p>Loading {{ selectedSet.name }}...</p>
       </div>
-      <div *ngIf="selectedSet" class="card-grid" style="grid-template-columns: 2em 6em auto 5em auto 5em" [ngStyle]="{'max-height': '90vh', 'overflow': 'auto'}">
+      <div *ngIf="selectedSet" class="card-grid" style="grid-template-columns: 2em 6em auto 5em auto 5em 2em" [ngStyle]="{'max-height': '40vh', 'overflow': 'auto'}">
         <div class="cell header"></div>
         <div class="cell header">Rarity</div>
         <div class="cell header">Name</div>
         <div class="cell header">Reprint</div>
         <div class="cell header">Type</div>
         <div class="cell header">USD</div>
+        <div class="cell header">Add</div>
 
         <div class="item"></div>
         <div class="item">
@@ -49,6 +50,7 @@
         <div class="item"></div>
         <div class="item"></div>
         <div class="item"></div>
+        <div class="item"></div>
         <ng-container *ngFor="let card of getFilteredCardSet()">
           <div class="item">{{ card.cmc }}</div>
           <div class="item">{{ card.rarity }}</div>
@@ -56,6 +58,7 @@
           <div class="item"><span *ngIf="card.reprint">Yes</span></div>
           <div class="item">{{ card.type_line }}</div>
           <div class="item">${{ card.usd }}</div>
+          <div class="item"><button class="button" (click)="addCard(card)">+</button></div>
         </ng-container>
       </div>
     </div>
@@ -67,3 +70,13 @@
 
     </div>
   </div>
+</section>
+<section class="section">
+  <div class="columns">
+    <div class="column">
+      <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))">
+        <div class="item" *ngFor="let card of userCardList"><img [src]="card.image_uris['png']" /></div>
+      </div>
+    </div>
+  </div>
+</section>
